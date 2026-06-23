@@ -1,7 +1,7 @@
 ---
 type: concept
 tags: [options, volatility, black-scholes, implied-vol, smile, skew]
-sources: [raw/papers/Mathematical Modeling and Computation in Finance With Exercises and Python and MATLAB Computer Codes by Cornelis W. Oosterlee, Lech A. Grzelak (z-lib.org).pdf]
+sources: [raw/papers/Mathematical Modeling and Computation in Finance With Exercises and Python and MATLAB Computer Codes by Cornelis W. Oosterlee, Lech A. Grzelak (z-lib.org).pdf, raw/papers/Trading-Volatility.pdf]
 created: 2026-06-23
 updated: 2026-06-23
 ---
@@ -71,12 +71,42 @@ The smile is inconsistent with constant-σ GBM. It encodes the market's belief t
 
 ---
 
+---
+
+## Why Skew Exists: Practitioner Perspective
+
+Beyond the mathematical models, Bennett identifies concrete reasons for the persistent equity skew (low-strike IV > high-strike IV):
+
+- **Jumps are asymmetric**: unexpected negative events (bankruptcy, crises, disasters) are more common than unexpected positive jumps. This creates excess demand for downside insurance.
+- **Leverage effect**: as stock prices fall, debt/equity ratio rises → company becomes riskier → vol rises mechanically with declining prices. Correlation between vol and equity level is structural.
+- **Demand for put protection**: investors buy OTM puts for portfolio insurance. Supply-demand imbalance raises low-strike IV.
+- **Call overwriting**: investors sell OTM calls against long positions ([[CallOverwriting]]), weighing on high-strike IV.
+
+> [!note] Skew is **not** a reliable risk indicator. Because skew = sticky_low_strike_IV − ATM_IV, and ATM IV fluctuates while low-strike IV is "sticky", skew often *rises* when ATM vol *falls* (calm markets). A high skew reading can mean fear is low, not high. (Bennett §7.1)
+
+---
+
+## Measuring Skew
+
+Common conventions:
+- **90%–100% skew**: IV(90% strike) − IV(100% strike). Most common for 3-month options. Can be misleading when ATM vol is low (skew rises mechanically).
+- **90%–110% skew**: IV(90% strike) − IV(110% strike). Symmetric measure, less contaminated by upside flatness.
+- **Risk reversal** (RR): quoted in vol points, often for 25-delta put vs 25-delta call.
+- **Butterfly** (BF): 25-delta call + 25-delta put − 2×ATM. Measures smile curvature.
+
+For comparing skew across time or across underlyings, multiply by √T to normalize (the **square root of time rule** applied to skew): `skew × √T` should be approximately constant if the vol surface moves self-similarly.
+
+---
+
 ## Related Concepts
 
 - [[BlackScholesModel]] — the formula that is inverted to extract IV
 - [[VolatilitySurface]] — the full (K, T) surface of IVs
+- [[VolatilityTermStructure]] — the maturity dimension of the surface
 - [[LocalVolatilityModel]] — the model that matches the IV surface exactly by construction
 - [[HestonModel]] — stochastic vol model; produces a characteristic smile shape
 - [[JumpDiffusion]] — another mechanism producing smile
 - [[VarianceSwap]] — model-free pricing using the IV surface
+- [[VolatilityRiskPremium]] — implied vol is structurally above realized; the premium is exploited by vol sellers
+- [[ImpliedCorrelation]] — index IV above single-stock IV due to correlation premium
 - [[OptionGreeks]] — vega is the sensitivity of option price to σ

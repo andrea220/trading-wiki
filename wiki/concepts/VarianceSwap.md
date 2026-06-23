@@ -1,7 +1,7 @@
 ---
 type: concept
 tags: [options, variance, volatility, swap, derivatives, model-free]
-sources: [raw/papers/Mathematical Modeling and Computation in Finance With Exercises and Python and MATLAB Computer Codes by Cornelis W. Oosterlee, Lech A. Grzelak (z-lib.org).pdf]
+sources: [raw/papers/Mathematical Modeling and Computation in Finance With Exercises and Python and MATLAB Computer Codes by Cornelis W. Oosterlee, Lech A. Grzelak (z-lib.org).pdf, raw/papers/Trading-Volatility.pdf]
 created: 2026-06-23
 updated: 2026-06-23
 ---
@@ -67,10 +67,58 @@ The variance swap strike directly reflects the shape of the [[VolatilitySurface]
 
 ---
 
+---
+
+## Variance vs. Volatility Swaps: The Convexity Difference
+
+A **volatility swap** pays `σ_realized − K_vol` (linear in vol). A variance swap pays `σ²_realized − K_var` (quadratic in vol). Because variance is convex in volatility:
+
+```
+E[σ²] > (E[σ])²    by Jensen's inequality
+```
+
+The fair variance swap strike > the fair volatility swap strike (in vol units). The difference depends on the **vol of vol**: the more volatile volatility is, the larger the convexity premium. For practical purposes, `K_var ≈ K_vol²` only if vol is constant; otherwise `K_var > K²_vol`.
+
+---
+
+## Capped Variance Swaps
+
+Single stocks and EM index variance swaps routinely include a **cap** at 2.5× the strike:
+
+```
+Capped variance swap payoff = min(σ²_realized, cap²) − K_var
+Capped var swap = Uncapped var swap − Call on variance with strike = cap
+```
+
+The cap was considered nearly worthless at inception (far OTM) and therefore mispriced before the 2008 credit crunch. When realized variance spiked dramatically, caps became deeply in-the-money. Dealers who did not properly model the cap suffered large losses. Now standard to model carefully.
+
+---
+
+## Options on Variance
+
+Liquid enough to trade by mid-2000s. A call on variance pays `max(F² − K², 0)` where F is the variance realized over the option's life. Properties:
+- **Positive skew**: options on variance have *upward-sloping* IV (high-strike calls expensive) — the opposite of equity options. Rationale: vol is more unstable at high levels (a crisis can worsen), making OTM calls more valuable.
+- **Inverted term structure**: volatility mean-reverts, so far-dated variance options are less expensive per unit of time.
+- Breakeven for a call on variance: `~K + P` (slightly less than vol call breakeven due to convexity).
+
+---
+
+## Variance as an Equity Hedge: Bennett's Skepticism
+
+Variance swaps have ~70% R² with equity returns (1-year maturity), which seems attractive for hedging. But adding variance swaps to a long equity portfolio is a **poor hedge** relative to simply shorting futures (Bennett §3.2):
+- There is a **structural cost**: implied variance > realized variance on average ([[VolatilityRiskPremium]]).
+- The less-than-100% correlation means there comes a point where adding more variance does not reduce portfolio risk and starts increasing it.
+- For periods when equity returns are positive (the relevant benchmark for comparing hedging strategies), long variance consistently underperforms short futures as a hedge.
+
+---
+
 ## Related Concepts
 
 - [[ImpliedVolatility]] — variance swap strike > ATM IV² due to the smile convexity premium
 - [[VolatilitySurface]] — the full surface of IVs is needed for variance swap replication
-- [[LocalVolatilityModel]] — Ch. 4 context in Oosterlee & Grzelak for model-free derivation
+- [[VolatilityRiskPremium]] — short variance systematically profitable; fair VRP is the spread between K_var and E[σ²_realized]
+- [[ImpliedCorrelation]] — index variance swap price reflects implied correlation; drives dispersion trades
+- [[VIX]] — VIX² ≈ fair 30-day variance swap strike on S&P 500
+- [[DispersionTrading]] — short index variance, long single-stock variance; correlation play
+- [[LocalVolatilityModel]] — model-free derivation of variance swap strike
 - [[HestonModel]] — SV models capture the variance risk premium through mean reversion
-- [[BlackScholesModel]] — in a flat-vol world, K_var = σ²_ATM; the deviation measures the smile

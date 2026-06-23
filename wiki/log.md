@@ -21,6 +21,37 @@
 - Pages created: wiki/concepts/StochasticProcess.md, wiki/concepts/BrownianMotion.md, wiki/concepts/GeometricBrownianMotion.md
 - Notes: Created from LLM knowledge on request, without a raw source. Marked with origin: llm-knowledge and info callout.
 
+## [2026-06-23] ingest | TradingVolatility
+- **Source**: `raw/papers/Trading-Volatility.pdf` — practitioner book (50 pp.), Colin Bennett (Head of Quant & Derivative Strategy, Banco Santander), 2014. Subtitle: "Trading Volatility, Correlation, Term Structure and Skew"
+- **Summary**: Practitioner-focused guide to equity vol trading across seven chapters: (1) option basics, call overwriting, protection strategies, option structures; (2) vol trading mechanics — delta hedging, variance vs vol, gamma swaps, options on variance; (3) structural reasons implied vol is overpriced: equity risk premium link, long vol as poor hedge, variable annuity hedging, structured products vicious circle; (4) forward-starting products, vol indices (VIX/vStoxx), VIX futures and ETNs; (5) light exotics — barriers, worst-of, outperformance, look-backs; (6) relative value and correlation trading — dispersion, implied correlation, correlation swaps; (7) skew and term structure — linkage between skew and TS, square root of time rule, measuring skew, skew trading.
+- **Key claims**:
+  - Implied vol exceeds realized by ~1–2 vol pts on average; gap is structural (demand for hedges, structured product flow, variable annuity providers). Index implieds more overpriced than single-stock.
+  - Part of the IV–RV spread is *fair compensation* for the short-equity risk embedded in short vol positions (equity risk premium channel). Not pure mispricing.
+  - Far-dated options are more overpriced, but selling near-dated options is more profitable in practice: 12×1M > 1×12M.
+  - Rolling short-dated VIX/vStoxx futures is a consistently loss-making strategy in contango (negative roll yield). Long vol via futures is a poor equity hedge vs. simply shorting index futures.
+  - Variable annuity providers (~$1trn market, US) are structural buyers of long-dated downside protection → lifts long-term skew and term structure, especially S&P 500.
+  - Structured products vicious circle: banks short skew → equity falls → short vega grows → banks buy vol → vol spikes further. Reverse in recoveries → vol undershoots.
+  - Skew is NOT a reliable risk indicator: skew rises as ATM vol falls (sticky low-strike IVs), so high skew often signals *low* risk markets, not high.
+  - Index skew > single-stock skew, because in a crash all stocks fall together (implied correlation → 100% for low strikes), but in calm markets diversification compresses ATM index vol.
+  - Dispersion trade (short index vol, long single-stock vol) profits from overpriced implied correlation; suffered severe losses in 2008 when realized correlation spiked to near 100%.
+  - VIX² ≈ model-free implied variance = fair variance swap strike (30-day S&P 500).
+  - Capped variance swaps (cap at 2.5× strike, standard for single stocks) were mispriced before 2008; now standard to model the embedded option on variance correctly.
+- **Contradictions / tensions with existing wiki**:
+  - The book asserts long variance is a *poor* hedge vs. futures (see [[VarianceSwap]] update). This conflicts with the naive view that −70% correlation with equities makes it attractive; the VRP cost destroys the hedge value.
+  - Skew as a risk indicator: the book explicitly argues skew is *inversely* correlated with ATM vol and should not be used as a risk gauge. This is a nuanced counterintuitive claim.
+- **Gaps**: No quant/mathematical derivations (this is a practitioner book). Rough volatility, SOFR, and post-2014 market developments not covered. Options on realized variance modeled only at high level. No cross-asset vol (rates vol, FX vol) except implicitly.
+- **Pages created**:
+  - wiki/concepts/VolatilityRiskPremium.md
+  - wiki/concepts/VolatilityTermStructure.md
+  - wiki/concepts/ImpliedCorrelation.md
+  - wiki/strategies/CallOverwriting.md
+  - wiki/strategies/DispersionTrading.md
+  - wiki/instruments/VIX.md
+- **Pages updated**:
+  - wiki/concepts/ImpliedVolatility.md (added: skew reasons, skew measurement, VRP link, skew-as-risk-indicator caveat)
+  - wiki/concepts/VarianceSwap.md (added: variance vs vol convexity, capped variance, options on variance, Bennett's hedge skepticism)
+  - wiki/index.md (35 → 41 pages)
+
 ## [2026-06-23] convention | no source pages
 - Deleted: wiki/sources/OptionPricingGreeks.md, wiki/sources/ImpliedRepoTRF.md, wiki/sources/ComputationalFinanceOosterlee.md
 - Updated: wiki/index.md (sources section is now plain text, no wikilinks), wiki/log.md (source summaries moved here), CLAUDE.md (source type redefined: no .md files, summaries go in log.md)
