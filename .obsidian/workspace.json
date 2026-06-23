@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "b903054a4d089bd1",
+    "type": "split",
+    "children": [
+      {
+        "id": "1ff85577feeecea6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90342347c593f371",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e4344cdb754c3218",
+    "type": "split",
+    "children": [
+      {
+        "id": "c705fba35220b6e4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f63c86773b564274",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6cf861bc08159504",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "fda046c63115860e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "68ee5004c7e8ab9e",
+    "type": "split",
+    "children": [
+      {
+        "id": "a713ad1b0a85397e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "412ce0c409d2da85",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "1a1115f237c09968",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "6c852d5af2342b67",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "2df7414eec493829",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "58e68bbf0b479158",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "90342347c593f371",
+  "lastOpenFiles": [
+    "wiki/concepts/HullWhiteModel.md",
+    "wiki/log.md.tmp.36968.600ae09531e3",
+    "wiki/index.md.tmp.36968.bf92cc4d7cc8",
+    "wiki/log.md.tmp.36968.d9b92f6ac501",
+    "wiki/concepts/RiskNeutralMeasure.md",
+    "wiki/log.md.tmp.36968.42901a7a17f2",
+    "wiki/log.md.tmp.36968.f163fe82d2b0",
+    "wiki/concepts/ShortRateModel.md",
+    "wiki/instruments/EuroStoxx50.md",
+    "CLAUDE.md.tmp.36968.3d47e45506b0",
+    "CLAUDE.md.tmp.36968.65fed1b212f7",
+    "CLAUDE.md.tmp.36968.524781b4b629",
+    "wiki/sources/ComputationalFinanceOosterlee.md",
+    "wiki/overview.md",
+    "wiki/log.md.tmp.36968.1f78c80d6edb",
+    "CLAUDE.md.tmp.36968.27f2976e943f",
+    "wiki/people/LechGrzelak.md",
+    "wiki/people/CornelisOosterlee.md",
+    "wiki/concepts/LiborMarketModel.md",
+    "wiki/concepts/ForwardStartOption.md",
+    "wiki/concepts/StochasticLocalVolatilityModel.md",
+    "wiki/concepts/VarianceSwap.md",
+    "wiki/concepts/CreditValuationAdjustment.md",
+    "wiki/concepts/InterestRateDerivatives.md",
+    "wiki/concepts/HJMFramework.md",
+    "wiki/concepts/COSMethod.md",
+    "wiki/concepts/MonteCarloSimulation.md",
+    "wiki/concepts/AffineProcess.md",
+    "wiki/concepts/LevyProcess.md",
+    "wiki/concepts/JumpDiffusion.md",
+    "wiki/concepts/ItoLemma.md",
+    "wiki/concepts/HestonModel.md",
+    "wiki/concepts/StochasticVolatilityModel.md",
+    "wiki/concepts/LocalVolatilityModel.md",
+    "wiki/concepts/VolatilitySurface.md"
+  ]
+}
