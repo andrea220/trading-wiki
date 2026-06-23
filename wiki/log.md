@@ -114,6 +114,41 @@
 ## [2026-06-23] scarta | [[MyronScholes]]
 - Files edited: wiki/sources/OptionPricingGreeks.md (1 occurrence)
 
+## [2026-06-23] create | [[SmileGreeks]] (llm-knowledge)
+- **Pages created**: wiki/concepts/SmileGreeks.md
+- **Pages updated**: wiki/concepts/OptionGreeks.md (sezione Vanna snellita con rinvio a [[SmileGreeks]])
+- **Notes**: Vanna (∂Δ/∂σ, formula −N'(d₁)d₂/σ, segni, P&L decomposition, skew trading, exotic) e Volga (∂Vega/∂σ, formula Vega·d₁d₂/σ, butterfly) trattati come concetti distinti dal concetto di [[VannaVolgaMethod]] (forward-looking link).
+
+## [2026-06-23] ingest | DeltaQuantsAutocall + GlobalCapitalAutocall + SalonEquityAutocalls
+- **Sources**:
+  - `raw/notes/Delta Quants - Risk analysis of Autocallable notes.pdf` — deltaquants.com practitioner blog (DeltaQuants, ~2009)
+  - `raw/notes/An Introduction To Auto-Callables.pdf` — GlobalCapital Learning Curve article (Gerry Fowler & Lamia Outgenza, Citigroup, April 2005)
+  - `raw/articles/Equity Autocalls.pdf` — SSRN practitioner paper (Gregory Salon, Quantik Trading Consulting, April 2019)
+- **Summary**: Three complementary sources covering autocallable structured products from introductory to quant-practitioner level. (1) DeltaQuants: payoff mechanics, EQ/IR correlation impact, Down-and-In put variant, snowball, worst-of. (2) GlobalCapital (Citigroup): investor and issuer risk perspective, delta discontinuity near barriers, vega term structure dynamics, gamma wells, market impact on flow derivatives. (3) Salon: formal carry P&L framework (ExtraVanna P&L), proof that local vol model mis-specifies spot/vol covariance → systematic Vanna negative carry of 1–3 bps/day; analytical approximation Π ≈ PutD&IPrice × SurvivalRate; "ExtraVanna add-on" hedging solution priced at ~1.2% for a 10Y SX5E autocall.
+- **Key claims**:
+  - Autocall = short Bermudan digital strip + long cancellable Down-and-In put (Π). Π is the core model-dependent component.
+  - Issuer is net **long vega**; hedges by selling vanilla options → banks are structural vol sellers in the market.
+  - Carry P&L = ½ ∫ ∑ (∂²P/∂αᵢ∂αₖ) × [RealisedCovar − ModelCovar] dt. For Vanna (∂²Π/∂S∂σ), the covariance is negative in LV but less negative in realised data → persistent negative carry in LV.
+  - LV formula for spot/vol covariance (Bergomi 2016, p.51): dominates the carry and is systematically too negative.
+  - ExtraVanna add-on: approximate Vanna as (∂SurvivalRate/∂S) × (∂PutD&IPrice/∂αₖ), book as daily payoff add-on in local vol pricer. Worst-case 20% replication failure in back-tests.
+  - Positive EQ/IR correlation hurts the issuer (DeltaQuants, GlobalCapital): equity rally + rate rise → issuer loses while shifting bond hedges from long to short maturity.
+  - Gamma wells: long gamma near barriers creates price support; rapid delta unwind if barrier breached.
+- **Contradictions / tensions**:
+  - Salon's model-independent add-on approach (stay in LV + add-on) vs. full SLV migration: both are valid paths but the add-on sacrifices some hedging precision (20% worst case failure) for implementation simplicity.
+  - GlobalCapital (2005) calls the issuer's vega exposure "long vol"; this is correct but the issuer sells vol to hedge → net vol supply from the sector.
+- **Gaps**: Cash collect memory coupon variant not treated formally. Airbag not covered in any source. Worst-of correlation hedge mechanics only sketched. Quanto autocall risk mentioned but not developed.
+- **Pages created**:
+  - wiki/concepts/AutocallableCertificate.md
+  - wiki/concepts/AirbagCertificate.md (llm-knowledge for the airbag structure; autocall sections fully sourced)
+- **Pages updated**:
+  - wiki/concepts/LocalVolatilityModel.md (added: Vanna carry problem for autocalls, LV covariance formula, note on SLV displacement)
+  - wiki/concepts/OptionGreeks.md (expanded Vanna: negative carry mechanism in autocall context)
+  - wiki/index.md (42 → 44 pages)
+
+## [2026-06-23] create | [[OptionPricingRulesOfThumb]] (llm-knowledge)
+- **Pages created**: wiki/concepts/OptionPricingRulesOfThumb.md
+- **Notes**: Mental math approximations for vanilla option pricing: ATM price ≈ 0.4·σ·√T·S, Rule of 16, ATM Greeks table, Gamma-Theta identity, Bachelier normal vol, break-even daily move formula. Created from LLM knowledge on request.
+
 ## [2026-06-23] ingest | OptionPricingGreeks
 - **Source**: `raw/notes/European option pricing and the Greeks.pdf` — lecture notes Ch.6, C. Pacati, v. 2023
 - **Pages created**: BlackScholesModel, EuropeanOptionTaxonomy, Moneyness, OptionGreeks, PutCallParity

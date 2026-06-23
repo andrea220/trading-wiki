@@ -101,10 +101,17 @@ CON and AON Greeks for puts are obtained by negation (from respective parity rel
 
 ---
 
-## Higher-Order Greeks (Named, Not Computed Here)
+## Smile Greeks: Vanna and Volga
 
-- **Vanna** (∂Δ/∂σ = ∂V/∂S): how Delta changes with vol; key for skew trading
-- **Volga / Vomma** (∂V/∂σ): convexity of vol; key for vol of vol exposure
+See [[SmileGreeks]] for the full treatment. Summary:
+
+- **Vanna** (∂Δ/∂σ = ∂Vega/∂S): measures sensitivity to joint spot/vol moves. Formula: −N'(d₁)·d₂/σ. Zero at ATM, positive for OTM options, negative for ITM. Key for skew trading (risk reversals) and central to the model dependency of [[AutocallableCertificate]]: negative Vanna on the cancellable DIP generates a structural daily carry loss when using [[LocalVolatilityModel]].
+- **Volga** (∂Vega/∂σ): vol convexity. Formula: Vega·d₁d₂/σ. Negative at ATM, positive in the wings — the source of the OTM option premium above Black-Scholes. Key for butterfly spreads and vol-of-vol exposure.
+
+Together they define the **Vanna-Volga hedging basis**: the residual smile exposure that cannot be neutralised with ATM options alone.
+
+## Other Higher-Order Greeks
+
 - **Charm** (∂Δ/∂t): how Delta decays with time; important for weekend/holiday hedging
 
 ---

@@ -1,5 +1,5 @@
 # Wiki Index
-_Last updated: 2026-06-23 — 41 pages total_
+_Last updated: 2026-06-23 — 45 pages total_
 
 ## Sources ingested (see log.md for full summaries)
 - OptionPricingGreeks — Pacati 2023: B-S pricing, parity relations, Greeks
@@ -8,7 +8,9 @@ _Last updated: 2026-06-23 — 41 pages total_
 - TradingVolatility — Bennett 2014: practitioner vol trading, VRP, skew, correlation, dispersion, term structure
 
 ## Concepts (36)
+- [[AirbagCertificate]] — participation certificate with capital protection down to airbag level; leveraged loss below
 - [[AffineProcess]] — Riccati ODE framework for closed-form characteristic functions; covers Heston, Hull-White, CIR
+- [[AutocallableCertificate]] — strip of Bermudan digitals + cancellable DIP; Vanna negative carry; LV failure; SLV standard
 - [[BlackScholesModel]] — GBM-based pricing model: d1/d2, vanilla and digital formulas, Zero Lemma, assumptions and limits
 - [[BrownianMotion]] — Wiener process: definition, Itô's lemma, quadratic variation, historical origin
 - [[COSMethod]] — Fourier cosine expansion for fast European option pricing; spectral convergence
@@ -30,11 +32,13 @@ _Last updated: 2026-06-23 — 41 pages total_
 - [[LiborMarketModel]] — BGM model; joint forward LIBOR dynamics; cap/floor calibration; shifted LMM for negative rates
 - [[LocalVolatilityModel]] — Dupire's formula; exact smile calibration; limitations for forward vol
 - [[Moneyness]] — ITM/ATM/OTM and forward moneyness; ATMF special cases; convention disagreements
+- [[OptionPricingRulesOfThumb]] — mental math: ATM price ≈ 0.4·σ·√T·S, Rule of 16, ATM Greeks, Gamma-Theta identity
 - [[MonteCarloSimulation]] — Euler/Milstein schemes; QE scheme for CIR; variance reduction; Monte Carlo Greeks
 - [[OptionGreeks]] — Delta/Gamma/Vega/Theta/Rho for vanilla and digital options; Gamma-Theta trade-off; higher-order Greeks
 - [[PutCallParity]] — Six model-free parity relations; practical applications; American option caveats
 - [[RiskNeutralMeasure]] — Q-measure; discounted prices as martingales; Girsanov; numéraire changes
 - [[ShortRateModel]] — Vasicek, CIR, Hull-White; bond pricing; yield curve fitting
+- [[SmileGreeks]] — Vanna (∂Δ/∂σ) e Volga (∂Vega/∂σ): formule BS, segni, skew trading, Vanna-Volga basis
 - [[StochasticLocalVolatilityModel]] — Leverage function; combines exact smile calibration with SV dynamics
 - [[StochasticProcess]] — Filtrations, martingales, Markov property; taxonomy of processes used in finance
 - [[StochasticVolatilityModel]] — Two-factor models; ρ drives skew; overview of Heston/SABR/SV families

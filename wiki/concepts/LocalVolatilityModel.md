@@ -80,6 +80,20 @@ where Z ~ N(0,1). Interpolation quality of the local vol surface directly affect
 
 ---
 
+## Failure for Path-Dependent Exotics: Autocallables
+
+Beyond the forward-vol mismatch for [[ForwardStartOption]], the LV model has a structural failure for [[AutocallableCertificate]] books: it mis-specifies the **covariance between spot and ATM vol** (the Vanna carry problem).
+
+The LV model implies a specific — and too negative — spot/vol covariance derived from the skew (Bergomi, 2016, p. 51):
+
+$$
+\text{LocalVolModelCovar}(d\ln S_0, d\hat{\sigma}_{F_T,T}) = \hat{\sigma}_{F_T,T} \cdot \left[\mathcal{S}_T + \frac{1}{T}\int_0^T \frac{\bar{\sigma}^2(u)}{\hat{\sigma}_u\hat{\sigma}_T} \mathcal{S}_u\, du\right]
+$$
+
+Since autocallable books have negative Vanna (∂²Π/∂S∂σ < 0), and the realised covariance is less negative than the LV model predicts, the daily carry P&L from Vanna rehedging is **structurally negative** — 1 to 3 bps per day when spot trades near the recall barrier. This carry has been persistently negative over the entire history of autocall trading (Salon, 2019).
+
+> [!note] This is the primary reason the [[StochasticLocalVolatilityModel]] (SLV) displaced pure LV as the industry standard for autocall desks. The stochastic component of SLV allows the spot/vol covariance to be calibrated to historical values rather than being mechanically implied by the smile skew.
+
 ## Related Concepts
 
 - [[ImpliedVolatility]] — the IV surface that Dupire's formula reads
@@ -88,3 +102,4 @@ where Z ~ N(0,1). Interpolation quality of the local vol surface directly affect
 - [[StochasticLocalVolatilityModel]] — hybrid that combines LV calibration with SV dynamics
 - [[BlackScholesModel]] — the baseline that LV extends
 - [[ForwardStartOption]] — product that exposes the difference between LV and SV models
+- [[AutocallableCertificate]] — exotic product for which LV produces systematic negative Vanna carry

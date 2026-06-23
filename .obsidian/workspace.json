@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "1ff85577feeecea6",
+        "id": "43539bcb5acfbcbb",
         "type": "tabs",
         "children": [
           {
-            "id": "90342347c593f371",
+            "id": "d7d1330b994516f9",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "wiki/concepts/SmileGreeks.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SmileGreeks"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "wiki/concepts/SmileGreeks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for SmileGreeks"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "wiki/concepts/SmileGreeks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from SmileGreeks"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "wiki/concepts/SmileGreeks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of SmileGreeks"
             }
           }
         ]
@@ -176,42 +183,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "90342347c593f371",
+  "active": "d7d1330b994516f9",
   "lastOpenFiles": [
-    "wiki/strategies/DispersionTrading.md",
-    "wiki/overview.md.tmp.36968.146af2cb9bc0",
-    "wiki/log.md.tmp.36968.cbb5a8800401",
-    "wiki/index.md.tmp.36968.5c9ed75a848b",
-    "wiki/concepts/VarianceSwap.md.tmp.36968.d25c6343b92f",
-    "wiki/concepts/VarianceSwap.md.tmp.36968.0a65e337f80a",
-    "wiki/concepts/ImpliedVolatility.md.tmp.36968.4acd07d42309",
-    "wiki/concepts/ImpliedVolatility.md.tmp.36968.c94cb1b594e0",
-    "wiki/instruments/VIX.md",
-    "wiki/instruments/VIX.md.tmp.36968.e025e80f7d66",
-    "wiki/strategies/DispersionTrading.md.tmp.36968.510a6434099f",
+    "wiki/concepts/OptionGreeks.md",
+    "wiki/concepts/AutocallableCertificate.md",
+    "wiki/concepts/AirbagCertificate.md",
+    "wiki/log.md.tmp.42160.5a304b00fc2a",
+    "wiki/concepts/OptionGreeks.md.tmp.42160.ef420420119b",
+    "wiki/concepts/SmileGreeks.md",
+    "wiki/concepts/SmileGreeks.md.tmp.42160.d41698a4ce31",
+    "wiki/concepts/OptionGreeks.md.tmp.42160.ac87e2daad09",
+    "wiki/log.md.tmp.42160.f46f085d59c6",
+    "wiki/index.md.tmp.42160.5261e91187e3",
+    "wiki/concepts/OptionGreeks.md.tmp.42160.1c8d978ce296",
+    "wiki/concepts/LocalVolatilityModel.md.tmp.42160.7aa7e6ed4fff",
+    "wiki/concepts/AirbagCertificate.md.tmp.42160.ad1e8abf5217",
+    "wiki/concepts/AutocallableCertificate.md.tmp.42160.efed76118e97",
     "wiki/strategies/CallOverwriting.md",
-    "wiki/strategies/CallOverwriting.md.tmp.36968.285fb95f7774",
+    "wiki/overview.md",
+    "Untitled.canvas",
+    "wiki/concepts/OptionPricingRulesOfThumb.md",
+    "2026-06-23.md",
+    "wiki/concepts/ImpliedRepo.md",
+    "wiki/concepts/COSMethod.md",
+    "wiki/concepts/RiskNeutralMeasure.md",
+    "wiki/concepts/LocalVolatilityModel.md",
+    "wiki/concepts/VolatilitySurface.md",
+    "wiki/concepts/TotalReturnFutures.md",
+    "wiki/concepts/EquityForwardPricing.md",
+    "wiki/concepts/HestonModel.md",
+    "wiki/concepts/VolatilityRiskPremium.md",
+    "wiki/concepts/ImpliedVolatility.md",
+    "wiki/strategies/DispersionTrading.md",
+    "wiki/instruments/VIX.md",
     "wiki/concepts/ImpliedCorrelation.md",
     "wiki/concepts/VolatilityTermStructure.md",
-    "wiki/concepts/VolatilityRiskPremium.md",
     "wiki/concepts/HullWhiteModel.md",
-    "wiki/concepts/RiskNeutralMeasure.md",
     "wiki/concepts/ShortRateModel.md",
-    "wiki/instruments/EuroStoxx50.md",
-    "wiki/sources/ComputationalFinanceOosterlee.md",
-    "wiki/overview.md",
-    "wiki/people/LechGrzelak.md",
-    "wiki/people/CornelisOosterlee.md",
-    "wiki/concepts/LiborMarketModel.md",
-    "wiki/concepts/ForwardStartOption.md",
-    "wiki/concepts/StochasticLocalVolatilityModel.md",
-    "wiki/concepts/VarianceSwap.md",
-    "wiki/concepts/CreditValuationAdjustment.md",
-    "wiki/concepts/InterestRateDerivatives.md",
-    "wiki/concepts/HJMFramework.md",
-    "wiki/concepts/COSMethod.md",
-    "wiki/concepts/MonteCarloSimulation.md",
-    "wiki/concepts/AffineProcess.md",
-    "wiki/concepts/LevyProcess.md"
+    "wiki/instruments/EuroStoxx50.md"
   ]
 }
