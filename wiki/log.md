@@ -161,3 +161,20 @@
   - Any piecewise-linear European payoff can be statically replicated by a portfolio of vanillas.
 - **Contradictions**: Moneyness convention not standardized (S/K vs forward moneyness). Vega is not a Greek letter — cosmetic but worth tracking in practitioner literature.
 - **Gaps**: European options only (no American, no barrier). No vol smile or term structure. Greeks beyond the five main ones named but not computed (Vanna, Volga, Charm).
+
+## [2026-06-24] restructure | wiki directory layout
+- **Changes**:
+  - Renamed `wiki/events/` → `wiki/regimes/` (focus on vol/derivatives-relevant regime shifts, not general market history)
+  - Created `wiki/models/` for parametric pricing models and numerical methods
+  - Removed `wiki/people/` and `wiki/sources/` (already unused; bookkeeping stays in log.md)
+  - Updated CLAUDE.md: new directory layout, new `type` enum (concept | instrument | model | strategy | regime | synthesis), new page type descriptions, updated Wikilink Policy and index template
+- **Files migrated to `wiki/models/`** (15): AffineProcess, BlackScholesModel, COSMethod, GeometricBrownianMotion, HJMFramework, HestonModel, HullWhiteModel, JumpDiffusion, LevyProcess, LiborMarketModel, LocalVolatilityModel, MonteCarloSimulation, ShortRateModel, StochasticLocalVolatilityModel, StochasticVolatilityModel
+- **Files migrated to `wiki/instruments/`** (6 added): AirbagCertificate, AutocallableCertificate, ForwardStartOption, TotalReturnFutures, TotalReturnSwap, VarianceSwap
+- **`wiki/concepts/`** retains (19): stochastic calculus foundations (BM, Itô, StochasticProcess, RiskNeutralMeasure) + market/pricing concepts (IV, VolSurface, Greeks, Skew, Moneyness, VRP, ImpliedCorrelation, ImpliedRepo, EquityForward, CVA, IRDerivatives, OptionTaxonomy, RulesOfThumb, PutCallParity)
+- **`wiki/index.md`** updated to reflect new section structure (45 pages, same count)
+
+## [2026-06-24] restructure | hub pages + remove index.md
+- **Rationale**: index.md would have become the highest-degree node in the graph (connected to all 45 pages), overwhelming the visual clustering. Hub pages inside each category folder create star-topology clusters while index.md is removed.
+- **Hub pages created**: wiki/concepts/Concepts.md, wiki/instruments/Instruments.md, wiki/models/Models.md, wiki/strategies/Strategies.md, wiki/regimes/Regimes.md, wiki/synthesis/Synthesis.md (all type: hub)
+- **Deleted**: wiki/index.md
+- **CLAUDE.md updated**: directory layout, frontmatter type enum (added hub), Hub Page Format section (replaces index.md Format), ingest/query/create workflows now reference hub pages instead of index.md
